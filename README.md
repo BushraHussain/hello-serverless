@@ -1,3 +1,9 @@
+# Deployed links
+
+https://9snkx6c58a.execute-api.ap-south-1.amazonaws.com/Prod/addition/
+https://9snkx6c58a.execute-api.ap-south-1.amazonaws.com/Prod/subtraction/
+
+
 # addition-api
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
