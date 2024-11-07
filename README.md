@@ -1,7 +1,7 @@
 # Deployed links
 
-https://9snkx6c58a.execute-api.ap-south-1.amazonaws.com/Prod/addition/
-https://9snkx6c58a.execute-api.ap-south-1.amazonaws.com/Prod/subtraction/
+- https://9snkx6c58a.execute-api.ap-south-1.amazonaws.com/Prod/addition/
+- https://9snkx6c58a.execute-api.ap-south-1.amazonaws.com/Prod/subtraction/
 
 
 # addition-api
