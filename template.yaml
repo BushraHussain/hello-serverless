@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  addition-api
+
+  Sample SAM Template for addition-api
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  AdditionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      Events:
+        AdditionAPI:
+          Type: Api
+          Properties:
+            Path: /addition
+            Method: post
+
+  SubtractionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.subtraction_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      Events:
+        SubtractionApi:
+          Type: Api
+          Properties:
+            Path: /subtraction
+            Method: post
+
+Outputs:
+  AdditionApi:
+    Description: "API Gateway endpoint URL for Prod stage for Addition function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/addition/"
+  
+  SubtractionApi:
+    Description: "API Gateway endpoint URL for Prod stage for Subtraction function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/subtraction/"
+ 
+  AdditionFunction:
+    Description: "Addition Lambda Function ARN"
+    Value: !GetAtt AdditionFunction.Arn
+
+  SubtractionFunction:
+    Description: "Subtraction Lambda Function ARN"
+    Value: !GetAtt SubtractionFunction.Arn
+
+  AdditionFunctionIamRole:
+    Description: "Implicit IAM Role created for Addition function"
+    Value: !GetAtt AdditionFunctionRole.Arn
+
+  SubtractionFunctionIamRole:
+    Description: "Implicit IAM Role created for Subtraction function"
+    Value: !GetAtt SubtractionFunctionRole.Arn
